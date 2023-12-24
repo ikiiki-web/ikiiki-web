@@ -1,0 +1,63 @@
+{
+  "name": "ikiiki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "ts-check": "tsc --noEmit",
+    "lint": "eslint --fix './**/*.{ts,tsx}'",
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mt816/ikiiki.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mt816/ikiiki/issues"
+  },
+  "homepage": "https://github.com/mt816/ikiiki#readme",
+  "dependencies": {
+    "@emotion/babel-preset-css-prop": "^11.10.0",
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@sendgrid/mail": "^7.7.0",
+    "@types/react-slick": "^0.23.10",
+    "cheerio": "^1.0.0-rc.12",
+    "eslint-config-next": "^13.2.4",
+    "eslint-config-prettier": "^8.7.0",
+    "newt-client-js": "^3.2.4",
+    "next": "^13.2.4",
+    "pdf-to-base64": "^1.0.3",
+    "prettier": "^2.8.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.5",
+    "react-intersection-observer": "^9.4.3",
+    "react-loading": "^2.0.3",
+    "react-redux": "^8.0.5",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "@svgr/webpack": "^6.5.1",
+    "@types/node": "^18.15.3",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-scroll": "^1.8.6",
+    "eslint": "^8.36.0",
+    "react-scroll": "^1.8.9",
+    "typescript": "^4.9.5"
+  }
+}
