@@ -26,6 +26,7 @@ const HeadMeta: React.FC<Props> = ({ title }) => {
       <meta name='twitter:title' content={title} />
       <meta name='twitter:description' content={description} />
       <meta name='twitter:image' content={`${hostUrl}/img/ogp.png`} />
+      <meta name='robots' content='noindex' />
     </Head>
   )
 }
