@@ -50,7 +50,7 @@ const DetailWp: React.FC<Props> = ({ article }) => {
           Number(category.slug) === article.categories?.filter((item) => item !== 1)?.[0],
       )
       const categoryArticles = await fetch(
-        `https://ikiiki-column.v3x6y84f.work/wp-json/wp/v2/posts?categories=${category?.slug}&per_page=4`,
+        `https://wp.kodoishin.com/wp-json/wp/v2/posts?categories=${category?.slug}&per_page=4`,
       )
         .then((res) => res.json())
         .then((data) => data.filter((articleListItem: any) => articleListItem.id !== article.id))
