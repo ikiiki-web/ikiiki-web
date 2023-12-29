@@ -22,7 +22,7 @@ const CasePage: React.FC = () => {
   useEffect(() => {
     const getColumnArticles = async () => {
       const columnArticles = await fetch(
-        `https://ikiiki-column.v3x6y84f.work/wp-json/wp/v2/posts?categories=${category}&per_page=9&page=${page}`,
+        `https://wp.kodoishin.com/wp-json/wp/v2/posts?categories=${category}&per_page=9&page=${page}`,
       ).then((res) => {
         return res.json().then((data) => ({
           total: res.headers.get('X-WP-Total'),

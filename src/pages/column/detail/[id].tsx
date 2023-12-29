@@ -18,7 +18,7 @@ const CasePage: React.FC = () => {
     if (router.isReady) {
       const getColumnArticles = async () => {
         const columnArticle = await fetch(
-          `https://ikiiki-column.v3x6y84f.work/wp-json/wp/v2/posts/${id}`,
+          `https://wp.kodoishin.com/wp-json/wp/v2/posts/${id}`,
         ).then((res) => res.json())
         setColumnArticle(columnArticle)
       }
