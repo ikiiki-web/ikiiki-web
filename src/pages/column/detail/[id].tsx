@@ -1,6 +1,4 @@
-import { GetServerSideProps, GetStaticProps } from 'next'
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Loading from 'react-loading'
 import HeadMeta from '@app/components/atoms/HeadMeta'
 import DetailWp from '@app/components/blocks/DetailWp'
@@ -9,22 +7,12 @@ import { PageLayout } from '@app/components/layouts/PageLayout'
 import { pageLoading } from '@app/styles/component/page'
 import { WP_REST_API_Post } from '@app/types/wp'
 
-const CasePage: React.FC = () => {
-  const [columnArticle, setColumnArticle] = useState<WP_REST_API_Post>()
-  const router = useRouter()
-  const id = router.query.id as string
+type Props = {
+  columnArticle: WP_REST_API_Post
+}
 
-  useEffect(() => {
-    if (router.isReady) {
-      const getColumnArticles = async () => {
-        const columnArticle = await fetch(
-          `https://wp.kodoishin.com/wp-json/wp/v2/posts/${id}`,
-        ).then((res) => res.json())
-        setColumnArticle(columnArticle)
-      }
-      getColumnArticles()
-    }
-  }, [router.isReady, id])
+const CasePage = (props: Props) => {
+  const { columnArticle } = props
 
   return (
     <PageLayout>
@@ -48,6 +36,27 @@ const CasePage: React.FC = () => {
       )}
     </PageLayout>
   )
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  if (!params) return { props: {} }
+  const res = await fetch(`https://wp.kodoishin.com/wp-json/wp/v2/posts/${params.id}`)
+  const columnArticle = await res.json()
+
+  return {
+    props: { columnArticle },
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await fetch(`https://wp.kodoishin.com/wp-json/wp/v2/posts/`)
+  const columnArticles = await res.json()
+  return {
+    paths: columnArticles.map((columnArticle: any) => ({
+      params: { id: columnArticle.id.toString() },
+    })),
+    fallback: false,
+  }
 }
 
 export default CasePage
