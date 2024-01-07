@@ -41,7 +41,11 @@ const CasePage = (props: Props) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params) return { props: {} }
-  const res = await fetch(`https://wp.kodoishin.com/wp-json/wp/v2/posts/${params.id}`)
+  const res = await fetch(`https://wp.kodoishin.com/wp-json/wp/v2/posts/${params.id}`, {
+    headers: {
+      Accept: 'application/json',
+    },
+  })
   const columnArticle = await res.json()
 
   return {
@@ -50,7 +54,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`https://wp.kodoishin.com/wp-json/wp/v2/posts/`)
+  const res = await fetch(`https://wp.kodoishin.com/wp-json/wp/v2/posts/`, {
+    headers: {
+      Accept: 'application/json',
+    },
+  })
   const columnArticles = await res.json()
   return {
     paths: columnArticles.map((columnArticle: any) => ({
