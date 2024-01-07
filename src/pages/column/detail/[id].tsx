@@ -13,6 +13,7 @@ type Props = {
 
 const CasePage = (props: Props) => {
   const { columnArticle } = props
+  console.log(columnArticle)
 
   return (
     <PageLayout>
