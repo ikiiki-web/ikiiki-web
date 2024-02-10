@@ -43,26 +43,41 @@ const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params) return { props: {} }
   await sleep(Math.random() * 10)
-  const res = await fetch(`https://wp.kodoishin.com/wp-json/wp/v2/posts/${params.id}`, {
-    headers: {
-      Accept: 'application/json',
-    },
-  })
-  const columnArticle = await res.json()
+  let columnArticle = await retry(`https://wp.kodoishin.com/wp-json/wp/v2/posts/${params.id}`)
+  if (columnArticle === undefined) {
+    await sleep(Math.random() * 10)
+    columnArticle = await retry(`https://wp.kodoishin.com/wp-json/wp/v2/posts/${params.id}`)
+  }
+  if (columnArticle === undefined) {
+    await sleep(Math.random() * 10)
+    columnArticle = await retry(`https://wp.kodoishin.com/wp-json/wp/v2/posts/${params.id}`)
+  }
 
   return {
     props: { columnArticle },
   }
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+async function retry(url: string) {
   await sleep(Math.random() * 10)
-  const res = await fetch(`https://wp.kodoishin.com/wp-json/wp/v2/posts/?per_page=500`, {
-    headers: {
-      Accept: 'application/json',
-    },
-  })
-  const columnArticles = await res.json()
+  try {
+    const res = await fetch(url, {
+      headers: {
+        Accept: 'application/json',
+      },
+    })
+    const a = await res.json()
+    if (a === undefined) {
+      throw new Error('error')
+    }
+    return a
+  } catch (e) {
+    retry(url)
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const columnArticles = await retry('https://wp.kodoishin.com/wp-json/wp/v2/posts/?per_page=500')
   return {
     paths: columnArticles.map((columnArticle: any) => ({
       params: { id: columnArticle.id.toString() },
