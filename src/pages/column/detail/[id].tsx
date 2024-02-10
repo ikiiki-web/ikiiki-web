@@ -38,8 +38,11 @@ const CasePage = (props: Props) => {
   )
 }
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params) return { props: {} }
+  await sleep(Math.random() * 10)
   const res = await fetch(`https://wp.kodoishin.com/wp-json/wp/v2/posts/${params.id}`, {
     headers: {
       Accept: 'application/json',
@@ -53,6 +56,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  await sleep(Math.random() * 10)
   const res = await fetch(`https://wp.kodoishin.com/wp-json/wp/v2/posts/?per_page=500`, {
     headers: {
       Accept: 'application/json',
