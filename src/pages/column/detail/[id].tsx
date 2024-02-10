@@ -44,13 +44,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params) return { props: {} }
   await sleep(Math.random() * 10)
   let columnArticle = await retry(`https://wp.kodoishin.com/wp-json/wp/v2/posts/${params.id}`)
-  if (columnArticle === undefined) {
-    await sleep(Math.random() * 10)
-    columnArticle = await retry(`https://wp.kodoishin.com/wp-json/wp/v2/posts/${params.id}`)
-  }
-  if (columnArticle === undefined) {
-    await sleep(Math.random() * 10)
-    columnArticle = await retry(`https://wp.kodoishin.com/wp-json/wp/v2/posts/${params.id}`)
+  for (let i = 0; i < 20; i++) {
+    if (columnArticle === undefined) {
+      await sleep(Math.random() * 10)
+      columnArticle = await retry(`https://wp.kodoishin.com/wp-json/wp/v2/posts/${params.id}`)
+    }
   }
 
   return {
