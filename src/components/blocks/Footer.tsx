@@ -13,7 +13,7 @@ const Footer = () => {
             <img css={footerLogo} src='/img/common/logo.svg' alt='イキイキ（ＩＫ！ＩＫ！）' />
             <p css={footerInfo}>
               <span>株式会社イキイキ（ＩＫ！ＩＫ！）</span>
-              〒107-0052
+              〒104-0004
               <br />
               東京都港区赤坂1丁目14-5
               <br />
