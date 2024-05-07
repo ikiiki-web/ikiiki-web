@@ -73,7 +73,7 @@ const CompanyPage: React.FC = () => {
               <Image src='/img/company/representative.png' alt='' fill sizes='100%' />
             </div>
             <div css={companyGreetingBox}>
-              <p>代表者取締役</p>
+              <p>代表取締役</p>
               <p>栄木 憲太郎</p>
               <p>
                 おかげさまで、当社は2024年5月1日に5期目を迎えました。
