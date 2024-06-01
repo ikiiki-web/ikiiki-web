@@ -47,7 +47,7 @@ const CompanyPage: React.FC = () => {
               <tr>
                 <th>所在地</th>
                 <td>
-                  〒104-0004
+                  〒100-0004
                   <br />
                   東京都千代田区大手町1-6-1
                   <br />
