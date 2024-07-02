@@ -18,9 +18,9 @@ const TopMv = () => {
       <div css={topMvContent}>
         <div css={topMvFirst}>
           <div css={topMvWood}>
-            <Image src='/img/top/mv_wood01.png' alt='' fill sizes='100%' priority />
+            <Image src='/img/top/new.png' alt='' fill sizes='100%' priority />
           </div>
-          <div css={topMvPerson}>
+          {/* <div css={topMvPerson}>
             <div css={topMvPersonItem}>
               <Image src='/img/top/mv_person01.png' alt='' fill sizes='100%' />
             </div>
@@ -33,9 +33,9 @@ const TopMv = () => {
             <div css={topMvPersonItem}>
               <Image src='/img/top/mv_person04.png' alt='' fill sizes='100%' />
             </div>
-          </div>
+          </div> */}
         </div>
-        <div css={topMvIkiiki}>
+        {/* <div css={topMvIkiiki}>
           <div css={topMvWoodIkiiki}>
             <Image src='/img/top/mv_wood02.png' alt='' fill sizes='100%' />
           </div>
@@ -53,7 +53,7 @@ const TopMv = () => {
               <Image src='/img/top/mv_person04_2.png' alt='' fill sizes='100%' />
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div css={topMvBox}>
           <h2 css={topMvHead}>
@@ -226,15 +226,6 @@ const topMvWood = css`
   top: 230px;
   margin: auto;
   z-index: -1;
-  animation: fadeIn 1s cubic-bezier(0.33, 1, 0.68, 1) 1 forwards;
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
   ${mqPc} {
     width: 43vw;
     right: auto;
@@ -650,7 +641,6 @@ const topMvFirst = css`
       opacity: 1;
     }
   }
-  animation: fadeInFirst 8s 2s infinite;
 `
 
 const topMvIkiiki = css`
