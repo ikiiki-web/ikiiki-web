@@ -226,6 +226,15 @@ const topMvWood = css`
   top: 230px;
   margin: auto;
   z-index: -1;
+  animation: fadeIn 1s cubic-bezier(0.33, 1, 0.68, 1) 1 forwards;
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
   ${mqPc} {
     width: 43vw;
     right: auto;
