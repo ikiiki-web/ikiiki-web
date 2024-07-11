@@ -18,40 +18,7 @@ const TopMv = () => {
       <div css={topMvContent}>
         <div css={topMvFirst}>
           <div css={topMvWood}>
-            <Image src='/img/top/mv_wood01.png' alt='' fill sizes='100%' priority />
-          </div>
-          <div css={topMvPerson}>
-            <div css={topMvPersonItem}>
-              <Image src='/img/top/mv_person01.png' alt='' fill sizes='100%' />
-            </div>
-            <div css={topMvPersonItem}>
-              <Image src='/img/top/mv_person02.png' alt='' fill sizes='100%' />
-            </div>
-            <div css={topMvPersonItem}>
-              <Image src='/img/top/mv_person03.png' alt='' fill sizes='100%' />
-            </div>
-            <div css={topMvPersonItem}>
-              <Image src='/img/top/mv_person04.png' alt='' fill sizes='100%' />
-            </div>
-          </div>
-        </div>
-        <div css={topMvIkiiki}>
-          <div css={topMvWoodIkiiki}>
-            <Image src='/img/top/mv_wood02.png' alt='' fill sizes='100%' />
-          </div>
-          <div css={topMvPersonIkiiki}>
-            <div css={topMvPersonItemIkiiki}>
-              <Image src='/img/top/mv_person01_2.png' alt='' fill sizes='100%' />
-            </div>
-            <div css={topMvPersonItemIkiiki}>
-              <Image src='/img/top/mv_person02_2.png' alt='' fill sizes='100%' />
-            </div>
-            <div css={topMvPersonItemIkiiki}>
-              <Image src='/img/top/mv_person03_2.png' alt='' fill sizes='100%' />
-            </div>
-            <div css={topMvPersonItemIkiiki}>
-              <Image src='/img/top/mv_person04_2.png' alt='' fill sizes='100%' />
-            </div>
+            <Image src='/img/top/top.png' alt='' fill sizes='100%' priority />
           </div>
         </div>
 
@@ -650,7 +617,6 @@ const topMvFirst = css`
       opacity: 1;
     }
   }
-  animation: fadeInFirst 8s 2s infinite;
 `
 
 const topMvIkiiki = css`
