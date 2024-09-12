@@ -267,7 +267,7 @@ const ServicePage: React.FC<Props> = ({ caseArticles }) => {
           </li>
         </ul>
       </section>
-      <ServiceNav title='さらに詳しく知りたい方はこちら' />
+      {/* <ServiceNav title='さらに詳しく知りたい方はこちら' /> */}
       {/* <CaseSlider title='成果事例' caseArticles={caseArticles} /> */}
       <section css={serviceComment} id='comment'>
         <div css={serviceCommentInner}>
